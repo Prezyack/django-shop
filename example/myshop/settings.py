@@ -256,9 +256,10 @@ TEMPLATES = [{
             'shop.context_processors.customer',
             'shop.context_processors.version',
             'shop.context_processors.ng_model_options',
+            'shop.context_processors.google_recaptcha',
             'shop_stripe.context_processors.public_keys',
         )
-    }
+    },
 }]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -576,6 +577,15 @@ SHOP_STRIPE = {
     'PUBKEY': 'pk_test_HlEp5oZyPonE21svenqowhXp',
     'APIKEY': 'sk_test_xUdHLeFasmOUDvmke4DHGRDP',
     'PURCHASE_DESCRIPTION': _("Thanks for purchasing at MyShop"),
+}
+
+REST_AUTH_SERIALIZERS = {
+    'LOGIN_SERIALIZER': 'shop.serializers.auth.LoginSerializer',
+}
+
+GOOGLE_RECAPTCHA = {
+    'SITE_KEY': '6LdlbhYUAAAAAF-yrPlsdB5Zi1CebjjLj7Qk3G_C',
+    'SECRET': '6LdlbhYUAAAAAPQ-SFP6mkWvLilj6jqDdDKA3sOP',
 }
 
 try:

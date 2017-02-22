@@ -6,8 +6,8 @@ var djangoShopModule = angular.module('django.shop.auth', []);
 
 // Directive for element: <shop-auth-form ng-form action="...">
 // handle a django-SHOP's forms related to authentication
-djangoShopModule.directive('shopAuthForm', ['$window', '$http', '$timeout',
-                                   function($window, $http, $timeout) {
+djangoShopModule.directive('shopAuthForm', ['$window', '$http', '$timeout', 'vcRecaptchaService',
+                                   function($window, $http, $timeout, vcRecaptchaService) {
 	return {
 		restrict: 'E',
 		require: 'form',
@@ -30,8 +30,12 @@ djangoShopModule.directive('shopAuthForm', ['$window', '$http', '$timeout',
 
 			// Submit auth form data. Use `delay` in milliseconds to postpone final action.
 			scope.submitForm = function(submitURL, delay) {
+				var post_data = angular.copy(scope.form_data);
+				try {
+					angular.extend(post_data, {recaptcha_response: vcRecaptchaService.getResponse()});
+				} catch(err) {}
 				submitURL = submitURL || attrs.formSubmitUrl;
-				$http.post(submitURL, scope.form_data).success(function(response) {
+				$http.post(submitURL, post_data).success(function(response) {
 					if (response.success) {
 						scope.success_message = response.success;
 						scope.error_message = '';

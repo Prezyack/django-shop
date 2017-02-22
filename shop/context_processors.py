@@ -42,3 +42,8 @@ def ng_model_options(request):
         'EDITCART_NG_MODEL_OPTIONS': app_settings.EDITCART_NG_MODEL_OPTIONS,
         'ADD2CART_NG_MODEL_OPTIONS': app_settings.ADD2CART_NG_MODEL_OPTIONS,
     }
+
+def google_recaptcha(request):
+    return {
+        'GOOGLE_RECAPTCHA_SITEKEY': app_settings.GOOGLE_RECAPTCHA.get('SITE_KEY'),
+    }

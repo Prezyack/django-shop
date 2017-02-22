@@ -27,6 +27,7 @@
     "angular-i18n": "~1.5.11",
     "angular-inview": "^1.5.7",
     "angular-messages": "~1.5.11",
+    "angular-recaptcha": "^4.0.3",
     "angular-sanitize": "~1.5.11",
     "angular-ui-bootstrap": "~0.14.3",
     "bootstrap": "~3.3.7",

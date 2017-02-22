@@ -1,0 +1,8 @@
+{% load static sekizai_tags %}
+
+{% if GOOGLE_RECAPTCHA_SITEKEY %}
+{% addtoblock "js" %}<script src="{% static 'node_modules/angular-recaptcha/release/angular-recaptcha.min.js' %}" type="text/javascript"></script>{% endaddtoblock %}
+{% else %}
+{% addtoblock "js" %}<script src="{% static 'shop/js/recaptcha-service.js' %}" type="text/javascript"></script>{% endaddtoblock %}
+{% endif %}
+{% addtoblock "ng-requires" %}vcRecaptcha{% endaddtoblock %}

@@ -178,6 +178,9 @@ class AppSettings(object):
         result.setdefault('product_html_snippet', 86400)
         return result
 
+    @property
+    def GOOGLE_RECAPTCHA(self):
+        return self._setting('GOOGLE_RECAPTCHA')
 
 # Change the export value of the module, to allow importing with `from shop import app_settings`
 # For more details, see http://mail.python.org/pipermail/python-ideas/2012-May/014969.html

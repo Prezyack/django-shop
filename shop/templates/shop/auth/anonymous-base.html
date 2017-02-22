@@ -1,5 +1,6 @@
 {% load i18n static sekizai_tags sass_tags %}
 
+{% include "shop/auth/recaptcha-service.html" %}
 {% addtoblock "js" %}<script src="{% static 'shop/js/auth.js' %}" type="text/javascript"></script>{% endaddtoblock %}
 {% addtoblock "ng-requires" %}django.shop.auth{% endaddtoblock %}
 
